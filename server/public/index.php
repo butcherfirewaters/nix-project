@@ -173,11 +173,74 @@ echo "число 5 было введено $massive_chisel[5] количеств
                 <?php for ($col = 1; $col <= 5; $col++): ?>
                     <?php $randColor = "#".rand(10,99).rand(10,99).rand(10,99);?>
 
-                    <td style="background-color:<?= $randColor ?>"><?= "колонка - $col" . "строка - $row" ?></td>
+                    <td style="background-color:<? echo $randColor ?>"><? echo "колонка - $col" . "строка - $row" ?></td>
                 <?php endfor; ?>
             </tr>
         <?php endfor; ?>
     </table>
+
+<?php
+
+//1. Дан массив
+//['Alex', 'Vanya', 'Tanya', 'Lena', 'Tolya']
+//Развернуть этот массив в обратном направлении
+
+$new_massive = [];
+$massive = ['Alex', 'Vanya', 'Tanya', 'Lena', 'Tolya'];
+for (end($massive); ($key = key($massive)) !== null; prev($massive) ) {
+    print($key . " : " . current($massive) . "\n");
+    array_push($new_massive, current($massive));
+}
+
+var_dump($new_massive);
+echo "<br>";
+echo "<br>";
+//2. Дан массив
+//[44, 12, 11, 7, 1, 99, 43, 5, 69]
+//Развернуть этот массив в обратном направлении
+
+$new_massive = [];
+$massive = [44, 12, 11, 7, 1, 99, 43, 5, 69];
+for (end($massive); ($key = key($massive)) !== null; prev($massive) ) {
+    print($key . " : " . current($massive) . "\n");
+    array_push($new_massive, current($massive));
+}
+
+var_dump($new_massive);
+
+echo "<br>";
+//3. Дана строка
+//let str = 'Hi I am ALex'
+//развенуть строку в обратном направлении.
+
+$str = 'Hi I am ALex';
+echo strrev($str);
+
+echo "<br>";
+
+//4. Дана строка. готовую функцию toUpperCase() or tolowercase()
+//let str = 'Hi I am ALex'
+//сделать ее с с маленьких букв
+
+$str = 'Hi I am ALex';
+
+
+echo "<br>";
+
+
+echo "<br>";
+
+
+echo "<br>";
+
+
+echo "<br>";
+
+?>
+
+
+
+
 </body>
 </html>
 
