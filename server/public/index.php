@@ -8,12 +8,12 @@
     <title>Document</title>
 </head>
 <body>
-    <?php
+<?php
 
 //В переменной month лежит какое-то число из интервала от 1 до 12.
 //Определите в какую пору года попадает этот месяц (зима, лето, весна, осень).
 
-$month = rand(1, 12);
+$month = rand( 1, 12 );
 
 switch ($month) {
     case 1:
@@ -59,9 +59,9 @@ switch ($month) {
 //Если это так - выведите 'да', в противном случае выведите 'нет'.
 echo "<br>";
 $stroka = 'abcde';
-if($stroka[0] == 'a'){
+if( $stroka[ 0 ] == 'a' ) {
     echo 'да';
-}else {
+} else {
     echo 'нет';
 }
 
@@ -70,12 +70,12 @@ if($stroka[0] == 'a'){
 // Если это так - выведите 'да', в противном случае выведите 'нет'.
 echo "<br>";
 $stroka = '12345';
-echo ($stroka[0] == 1 || $stroka[0] == 2 || $stroka[0] == 3) ? 'да' : 'нет';
+echo ($stroka[ 0 ] == 1 || $stroka[ 0 ] == 2 || $stroka[ 0 ] == 3) ? 'да' : 'нет';
 
 //Если переменная test равна true, то выведите 'Верно', иначе выведите 'Неверно'.
 // Проверьте работу скрипта при test, равном true, false.
 // Напишите два варианта скрипта - тернарка и if else.
-echo "<br>". "напишу тернаркой";
+echo "<br>" . "напишу тернаркой";
 $test = true;
 echo "<br>";
 echo ($test === true) ? 'true' : 'false';
@@ -87,10 +87,10 @@ echo "<br>";
 $lang = 'ru';
 $massive_rus = ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'];
 $massive_eng = ['mon', 'friday', 'sunday'];
-if($lang == 'ru'){
-    print_r($massive_rus);
+if( $lang == 'ru' ) {
+    print_r( $massive_rus );
 } else {
-    print_r($massive_eng);
+    print_r( $massive_eng );
 }
 
 echo "<br>";
@@ -98,16 +98,16 @@ echo "<br>";
 // Определите в какую четверть часа попадает это число
 // (в первую, вторую, третью или четвертую). тернарка и if else.
 
-$clock = rand(0, 59);
+$clock = rand( 0, 59 );
 echo $clock;
 echo "<br>";
-if($clock <=15) {
+if( $clock <= 15 ) {
     echo 'первая четверть';
-} elseif($clock <=30 && $clock >= 15) {
+} elseif( $clock <= 30 && $clock >= 15 ) {
     echo 'вторая четверть';
-} elseif($clock <=45 && $clock >= 30) {
+} elseif( $clock <= 45 && $clock >= 30 ) {
     echo 'третья четверть';
-} elseif($clock <=59 && $clock >= 30) {
+} elseif( $clock <= 59 && $clock >= 30 ) {
     echo 'четвертая четверть';
 }
 echo "<br>";
@@ -119,9 +119,9 @@ echo "<br>";
 //2) Сгенерируйте 100 раз новое число и выведите на экран количество четных чисел из этих 100.
 $result = 0;
 
-for ($i = 0; $i <= 100; $i++){
-    $chisla = rand(0, 100);
-    if($chisla % 2 == 0){
+for ( $i = 0; $i <= 100; $i++ ) {
+    $chisla = rand( 0, 100 );
+    if( $chisla % 2 == 0 ) {
         $result++;
     }
 }
@@ -136,48 +136,50 @@ echo "<br>";
 
 $massive_chisel = [];
 
-for ($i = 0; $i <= 100; $i++){
-    $chislo = rand(1, 5);
-    switch ($chislo){
+for ( $i = 0; $i <= 100; $i++ ) {
+    $chislo = rand( 1, 5 );
+    switch ($chislo) {
         case 1:
-            $massive_chisel[1]++;
+            $massive_chisel[ 1 ]++;
             break;
         case 2:
-            $massive_chisel[2]++;
+            $massive_chisel[ 2 ]++;
             break;
         case 3:
-            $massive_chisel[3]++;
+            $massive_chisel[ 3 ]++;
             break;
         case 4:
-            $massive_chisel[4]++;
+            $massive_chisel[ 4 ]++;
             break;
         case 5:
-            $massive_chisel[5]++;
+            $massive_chisel[ 5 ]++;
             break;
     }
 }
-echo "число 1 было введено $massive_chisel[1] количество раз". "<br>";
-echo "число 2 было введено $massive_chisel[2] количество раз". "<br>";
-echo "число 3 было введено $massive_chisel[3] количество раз". "<br>";
-echo "число 4 было введено $massive_chisel[4] количество раз". "<br>";
-echo "число 5 было введено $massive_chisel[5] количество раз". "<br>";
+echo "число 1 было введено $massive_chisel[1] количество раз" . "<br>";
+echo "число 2 было введено $massive_chisel[2] количество раз" . "<br>";
+echo "число 3 было введено $massive_chisel[3] количество раз" . "<br>";
+echo "число 4 было введено $massive_chisel[4] количество раз" . "<br>";
+echo "число 5 было введено $massive_chisel[5] количество раз" . "<br>";
 
 //4) Используя условия и циклы сделать таблицу в 5 колонок и 3 строки (5x3),
 // отметить разными цветами часть ячеек.
 
 ?>
 
-    <table>
-        <?php for ($row = 1; $row <= 3; $row++): ?>
-            <tr>
-                <?php for ($col = 1; $col <= 5; $col++): ?>
-                    <?php $randColor = "#".rand(10,99).rand(10,99).rand(10,99);?>
+<table>
+    <?php for ( $row = 1; $row <= 3; $row++ ): ?>
+        <tr>
 
-                    <td style="background-color:<? echo $randColor ?>"><? echo "колонка - $col" . "строка - $row" ?></td>
-                <?php endfor; ?>
-            </tr>
-        <?php endfor; ?>
-    </table>
+            <?php for ( $col = 1; $col <= 5; $col++ ): ?>
+                <?php $randColor = rand( 10, 99 ) . rand( 10, 99 ) . rand( 10, 99 );
+                ?>
+                <td style="background-color: <?php echo '#' . $randColor ?>">Колонка</td>
+
+            <?php endfor; ?>
+        </tr>
+    <?php endfor; ?>
+</table>
 
 <?php
 
@@ -187,12 +189,12 @@ echo "число 5 было введено $massive_chisel[5] количеств
 
 $new_massive = [];
 $massive = ['Alex', 'Vanya', 'Tanya', 'Lena', 'Tolya'];
-for (end($massive); ($key = key($massive)) !== null; prev($massive) ) {
-    print($key . " : " . current($massive) . "\n");
-    array_push($new_massive, current($massive));
+for ( end( $massive ); ($key = key( $massive )) !== null; prev( $massive ) ) {
+    print($key . " : " . current( $massive ) . "\n");
+    array_push( $new_massive, current( $massive ) );
 }
 
-var_dump($new_massive);
+var_dump( $new_massive );
 echo "<br>";
 echo "<br>";
 //2. Дан массив
@@ -201,12 +203,12 @@ echo "<br>";
 
 $new_massive = [];
 $massive = [44, 12, 11, 7, 1, 99, 43, 5, 69];
-for (end($massive); ($key = key($massive)) !== null; prev($massive) ) {
-    print($key . " : " . current($massive) . "\n");
-    array_push($new_massive, current($massive));
+for ( end( $massive ); ($key = key( $massive )) !== null; prev( $massive ) ) {
+    print($key . " : " . current( $massive ) . "\n");
+    array_push( $new_massive, current( $massive ) );
 }
 
-var_dump($new_massive);
+var_dump( $new_massive );
 
 echo "<br>";
 //3. Дана строка
@@ -214,7 +216,7 @@ echo "<br>";
 //развенуть строку в обратном направлении.
 
 $str = 'Hi I am ALex';
-echo strrev($str);
+echo strrev( $str );
 
 echo "<br>";
 
@@ -237,8 +239,6 @@ echo "<br>";
 echo "<br>";
 
 ?>
-
-
 
 
 </body>
