@@ -307,6 +307,8 @@ echo "<hr>";
 echo "<hr>";
 echo "<hr>";
 echo "<hr>";
+
+
 //
 //8. Дан массив
 //['Alex', 'Vanya', 'Tanya', 'Lena', 'Tolya']
@@ -336,13 +338,51 @@ echo "<pre>";
 var_dump($new_massive_big_button);
 echo "</pre>";
 
+
+echo "<hr>";
+echo "<hr>";
+echo "<hr>";
+echo "<hr>";
+
 //9. Дано число
 //let num = 1234678
 //развернуть ее в обратном направлении
-//
+
+$number = 12345678;
+$number = trim((string)$number);
+$number = explode(' ', $number);
+
+$new_numbers_massive = [];
+
+for ($i = 0; $i <= strlen($number[0]); $i++) {
+    $new_numbers_massive[$i] .= $number[0][$i];
+}
+$new_massive = [];
+
+for ( end( $new_numbers_massive ); ($key = key( $new_numbers_massive )) !== null; prev( $new_numbers_massive ) ) {
+    array_push( $new_massive, current( $new_numbers_massive ) );
+}
+
+$newStroka = implode("", $new_massive);
+
+echo "<pre>";
+var_dump($newStroka);
+echo "</pre>";
+
+echo "<hr>";
+echo "<hr>";
+echo "<hr>";
+echo "<hr>";
+
 //10. Дан массив
 //[44, 12, 11, 7, 1, 99, 43, 5, 69]
 //отсортируй его в порядке убывания
+
+$massive_last = [44, 12, 11, 7, 1, 99, 43, 5, 69];
+rsort($massive_last, SORT_NUMERIC);
+echo "<pre>";
+var_dump($massive_last);
+echo "</pre>";
 
 echo "<br>";
 
