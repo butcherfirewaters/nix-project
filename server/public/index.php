@@ -226,15 +226,123 @@ echo "<br>";
 
 $str = 'Hi I am ALex';
 
+$new_str_explode = explode(" ", $str);
 
+foreach ($new_str_explode as $key => $item){
+    $new_str_explode[$key] = strtolower($item);
+}
+
+var_dump($new_str_explode);
 echo "<br>";
 
 
+//5. Дана строка
+//let str = 'Hi I am ALex'
+//сделать все буквы большие
+
+$EnglishBigButtonMassive = array(
+    'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R',
+    'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
+);
+
+$EnglishSmallButtonMassive = array(
+    'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r',
+    's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
+);
+
 echo "<br>";
 
+$result = preg_replace("/\s+/", "", $str);
 
+$str_arr = array();
+
+for ($i=0;$i<=strlen($result)-1;$i++) {
+    array_push($str_arr, $result[$i]);
+}
+
+
+foreach ($str_arr as $key => $item) {
+    for ($i = 0; $i <= count($EnglishSmallButtonMassive); $i++) {
+        if($EnglishSmallButtonMassive[$i] == $item) {
+            $str_arr[$key] = $EnglishBigButtonMassive[$i];
+        }
+    }
+}
+echo "<pre>";
+var_dump($str_arr);
+echo "</pre>";
 echo "<br>";
 
+//7. Дан массив
+//['Alex', 'Vanya', 'Tanya', 'Lena', 'Tolya']
+//сделать все буквы с маленькой
+
+$massive = ['Alex', 'Vanya', 'Tanya', 'Lena', 'Tolya'];
+
+$massive = implode( ", ", $massive);
+var_dump($massive);
+$result = preg_replace("/\s+/", "", $massive);
+$result = preg_replace("/,/", "", $result);
+
+$str_arr = array();
+
+for ($i=0;$i<=strlen($result)-1;$i++) {
+    array_push($str_arr, $result[$i]);
+}
+
+
+foreach ($str_arr as $key => $item) {
+    for ($i = 0; $i <= count($EnglishBigButtonMassive); $i++) {
+        if($EnglishBigButtonMassive[$i] == $item) {
+            $str_arr[$key] = $EnglishSmallButtonMassive[$i];
+        }
+    }
+}
+echo "<pre>";
+var_dump($str_arr);
+echo "</pre>";
+
+
+echo "<hr>";
+echo "<hr>";
+echo "<hr>";
+echo "<hr>";
+//
+//8. Дан массив
+//['Alex', 'Vanya', 'Tanya', 'Lena', 'Tolya']
+//сделать все буквы с большой
+
+$massive = ['Alex', 'Vanya', 'Tanya', 'Lena', 'Tolya'];
+
+$new_massive_big_button = [];
+
+foreach ($massive as $key => $value) {
+
+    for ($v = 0; $v <= strlen($value); $v++) {
+
+        for ($i = 0; $i <= count($EnglishSmallButtonMassive); $i++) {
+            if($EnglishSmallButtonMassive[$i] == $value[$v]) {
+                $new_massive_big_button[$value] .= $EnglishBigButtonMassive[$i];
+            }
+            else if($EnglishBigButtonMassive[$i] == $value[$v]) {
+                $new_massive_big_button[$value] .= $value[$v];
+            }
+        }
+
+    }
+}
+
+echo "<pre>";
+var_dump($new_massive_big_button);
+echo "</pre>";
+
+//9. Дано число
+//let num = 1234678
+//развернуть ее в обратном направлении
+//
+//10. Дан массив
+//[44, 12, 11, 7, 1, 99, 43, 5, 69]
+//отсортируй его в порядке убывания
 
 echo "<br>";
 
