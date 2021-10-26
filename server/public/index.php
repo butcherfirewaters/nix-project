@@ -10,385 +10,203 @@
 <body>
 <?php
 
-//В переменной month лежит какое-то число из интервала от 1 до 12.
-//Определите в какую пору года попадает этот месяц (зима, лето, весна, осень).
 
-$month = rand( 1, 12 );
-
-switch ($month) {
-    case 1:
-        echo "Зима<br>";
-        break;
-    case 2:
-        echo "Зима<br>";
-        break;
-    case 3:
-        echo "Весна<br>";
-        break;
-    case 4:
-        echo "Весна<br>";
-        break;
-    case 5:
-        echo "Весна<br>";
-        break;
-    case 6:
-        echo "Лето<br>";
-        break;
-    case 7:
-        echo "Лето<br>";
-        break;
-    case 8:
-        echo "Лето<br>";
-        break;
-    case 9:
-        echo "Осень<br>";
-        break;
-    case 10:
-        echo "Осень<br>";
-        break;
-    case 11:
-        echo "Осень<br>";
-        break;
-    case 12:
-        echo "Зима<br>";
-        break;
+function dd($arr)
+{
+    echo "<pre>";
+    print_r( $arr );
+    echo "</pre>";
 }
 
-//Дана строка, состоящая из символов, например, 'abcde'.
-//Проверьте, что первым символом этой строки является буква 'a'.
-//Если это так - выведите 'да', в противном случае выведите 'нет'.
-echo "<br>";
-$stroka = 'abcde';
-if( $stroka[ 0 ] == 'a' ) {
-    echo 'да';
-} else {
-    echo 'нет';
+
+//Вам нужно создать массив и заполнить его случайными числами от 1 до 100 (ф-я rand).
+// Далее, вычислить произведение тех элементов, которые больше нуля и у которых четные индексы.
+// После вывести на экран элементы, которые больше нуля и у которых нечетный индекс.
+
+$array = [];
+
+for ($i = 1; $i <=100; $i++) {
+    $array[$i] .= rand(0, 100);
 }
-
-//Дана строка с цифрами, например, '12345'.
-// Проверьте, что первым символом этой строки является цифра 1, 2 или 3.
-// Если это так - выведите 'да', в противном случае выведите 'нет'.
-echo "<br>";
-$stroka = '12345';
-echo ($stroka[ 0 ] == 1 || $stroka[ 0 ] == 2 || $stroka[ 0 ] == 3) ? 'да' : 'нет';
-
-//Если переменная test равна true, то выведите 'Верно', иначе выведите 'Неверно'.
-// Проверьте работу скрипта при test, равном true, false.
-// Напишите два варианта скрипта - тернарка и if else.
-echo "<br>" . "напишу тернаркой";
-$test = true;
-echo "<br>";
-echo ($test === true) ? 'true' : 'false';
-
-//Дано Два массива рус и англ ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс']
-//Если переменная lang = ru вывести массив на русском языке,
-// а если en то вывести на английском языке. Сделат через if else и через тернарку.
-echo "<br>";
-$lang = 'ru';
-$massive_rus = ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'];
-$massive_eng = ['mon', 'friday', 'sunday'];
-if( $lang == 'ru' ) {
-    print_r( $massive_rus );
-} else {
-    print_r( $massive_eng );
-}
-
-echo "<br>";
-//В переменной cloсk лежит число от 0 до 59 – это минуты.
-// Определите в какую четверть часа попадает это число
-// (в первую, вторую, третью или четвертую). тернарка и if else.
-
-$clock = rand( 0, 59 );
-echo $clock;
-echo "<br>";
-if( $clock <= 15 ) {
-    echo 'первая четверть';
-} elseif( $clock <= 30 && $clock >= 15 ) {
-    echo 'вторая четверть';
-} elseif( $clock <= 45 && $clock >= 30 ) {
-    echo 'третья четверть';
-} elseif( $clock <= 59 && $clock >= 30 ) {
-    echo 'четвертая четверть';
-}
-echo "<br>";
-
-//1) Написать программу, которая выводит простые числа, т.е. делящиеся без
-//остатка только на себя и на 1.
+echo "<pre>";
+//var_dump($array);
+echo "</pre>";
 
 
-//2) Сгенерируйте 100 раз новое число и выведите на экран количество четных чисел из этих 100.
-$result = 0;
+function findChetNeChet($array) {
+    static $arrayForChutnie = [];
+    static $arrayForNeChutnie = [];
+    foreach ($array as $key => $item) {
+        if($item > 0 && $item % 2 == 0) {
+            array_push($arrayForChutnie, $item);
 
-for ( $i = 0; $i <= 100; $i++ ) {
-    $chisla = rand( 0, 100 );
-    if( $chisla % 2 == 0 ) {
-        $result++;
+        }
+
+        else {
+            array_push($arrayForNeChutnie, $item);
+        }
     }
+
+    echo "<pre>";
+    var_dump($arrayForChutnie);
+    echo "</pre>";
+
+    echo "<pre>";
+    var_dump($arrayForNeChutnie);
+    echo "</pre>";
+
 }
 
-echo $result;
+findChetNeChet($array);
 
+
+
+
+
+//Даны два числа. Найти их сумму и произведение. Даны два числа. Найдите сумму их квадратов.
+
+
+
+function kolya($pervoe, $vtoroe, $operator) {
+    if($operator == 'summa') {
+        $end = ($pervoe + $vtoroe) + ($pervoe * $vtoroe);
+    }
+    else if($operator == "kvadrat") {
+        $end = ($pervoe * $pervoe) + ($vtoroe * $vtoroe);
+    }
+    return $end;
+}
+
+$otvet = kolya(2, 3, 'kvadrat');
+echo "<br>";
+echo "<br>";
+$otvet = kolya(2, 3, 'summa');
+echo $otvet;
+
+//Даны три числа. Найдите их среднее арифметическое.
+$num1 = rand(1, 50);
+$num2 = rand(1, 50);
+$num3 = rand(1, 50);
+
+function SredneeZnachenie($num1, $num2, $num3)
+{
+    return ($num1 + $num2 + $num3) / 3;
+}
+echo 'Average = ' . SredneeZnachenie($num1, $num2, $num3);
 echo "<br>";
 
-//3) Сгенерируйте 100 раз число от 1 до 5 и выведите на экран сколько раз
-// сгенерировались эти числа (1, 2, 3, 4 и 5).
+//Дано число. Увеличьте его на 30%, на 120%.
+$num = rand(1, 50);
 
-
-$massive_chisel = [];
-
-for ( $i = 0; $i <= 100; $i++ ) {
-    $chislo = rand( 1, 5 );
-    switch ($chislo) {
-        case 1:
-            $massive_chisel[ 1 ]++;
-            break;
-        case 2:
-            $massive_chisel[ 2 ]++;
-            break;
-        case 3:
-            $massive_chisel[ 3 ]++;
-            break;
-        case 4:
-            $massive_chisel[ 4 ]++;
-            break;
-        case 5:
-            $massive_chisel[ 5 ]++;
-            break;
-    }
+function schititProcent($num){
+    return $num + $num * 0.3;
 }
-echo "число 1 было введено $massive_chisel[1] количество раз" . "<br>";
-echo "число 2 было введено $massive_chisel[2] количество раз" . "<br>";
-echo "число 3 было введено $massive_chisel[3] количество раз" . "<br>";
-echo "число 4 было введено $massive_chisel[4] количество раз" . "<br>";
-echo "число 5 было введено $massive_chisel[5] количество раз" . "<br>";
 
-//4) Используя условия и циклы сделать таблицу в 5 колонок и 3 строки (5x3),
-// отметить разными цветами часть ячеек.
+function schititProcent2($num){
+    return $num + $num * 1.2;
+}
+echo schititProcent($num) . "</br>";
+echo schititProcent2($num) . "</br>";
+echo "<hr>";
+
+
+
+
+
+//Найти минимальное и максимальное среди 3 чисел
+$num1 = rand(1, 50);
+$num2 = rand(1, 50);
+$num3 = rand(1, 50);
+echo $num1 . ' ' . $num2 . ' ' . $num3 . "</br>";
+function vichislitMin($num1, $num2, $num3)
+{
+    $arr = [$num1, $num2, $num3];
+    $min = $arr[0];
+    for ($i = 0; $i <= 2; $i++) {
+        if ($arr[$i] <= $min) {
+            $min = $arr[$i];
+        }
+    }
+    return $min;
+}
+echo vichislitMin($num1, $num2, $num3);
+echo "<br>";
+
+//Найти площадь
+$shirina =  rand(1, 100);
+$visota =  rand(1, 100);
+
+function vichislitPloshad($len, $wid) {
+    return $len * $wid;
+}
+echo vichislitPloshad($shirina, $visota) . "</br>";
+echo "<hr>";
+
+//Теорема Пифагора
+$len1 =  rand(1, 50);
+$len2 =  rand(1, 50);
+echo $len1 . ' ' . $len2 . "</br>";
+
+function piphagor($len1, $len2) {
+    return sqrt(pow($len1, 2) + pow($len2, 2));
+}
+echo piphagor($len1, $len2) . "</br>";
+
+
+//Найти периметр
+$len1 = rand(1, 50);
+$len2 = rand(1, 50);
+$len3 = rand(1, 50);
+
+function calcPerimetr($len1, $len2, $len3) {
+    return $len1 + $len2 + $len3;
+}
+echo calcPerimetr($len1, $len2, $len3) . "</br>";
+
+
+
+
+//Найти дискриминант
+
+//Создать только четные числа до 100
+
+function chetniy() {
+    $array = [];
+    for ($i = 1; $i <= 100; $i++) {
+        if($i % 2 == 0) {
+            array_push($array, $i);
+        }
+    }
+    var_dump($array);
+}
+echo "<pre>";
+chetniy();
+echo "</pre>";
+
+//Создать не четные числа до 100
+
+function neChetniy() {
+    $array = [];
+    for ($i = 1; $i <= 100; $i++) {
+        if($i % 2 == 0) {
+            continue;
+        }
+        array_push($array, $i);
+    }
+    var_dump($array);
+}
+echo "<pre>";
+neChetniy();
+echo "</pre>";
+
+//Пользователь выбирает из выпадающего списка страну (Турция, Египет или Италия), вводит количество дней для отдыха и указывает, есть ли у него скидка (чекбокс). Вывести стоимость отдыха, которая вычисляется как произведение   количества дней на 400. Далее это число увеличивается на 10%, если выбран Египет, и на 12%, если выбрана Италия. И далее это число уменьшается на 5%, если указана скидка.
+//Пользователь вводит свой имя, пароль, email. Если вся информация указана, то показать эти данные после фразы 'Регистрация прошла успешно', иначе сообщить какое из полей оказалось не заполненным.
+//Выведите на экран n раз фразу "Silence is golden". Число n вводит пользователь на форме. Если n некорректно, вывести фразу "Bad n".
+//Заполнить массив длины n нулями и единицами, при этом данные значения чередуются, начиная с нуля.
+//Определите, есть ли в массиве повторяющиеся элементы.
+
 
 ?>
-
-<table>
-    <?php for ( $row = 1; $row <= 3; $row++ ): ?>
-        <tr>
-
-            <?php for ( $col = 1; $col <= 5; $col++ ): ?>
-                <?php $randColor = rand( 10, 99 ) . rand( 10, 99 ) . rand( 10, 99 );
-                ?>
-                <td style="background-color: <?php echo '#' . $randColor ?>">Колонка</td>
-
-            <?php endfor; ?>
-        </tr>
-    <?php endfor; ?>
-</table>
-
-<?php
-
-//1. Дан массив
-//['Alex', 'Vanya', 'Tanya', 'Lena', 'Tolya']
-//Развернуть этот массив в обратном направлении
-
-$new_massive = [];
-$massive = ['Alex', 'Vanya', 'Tanya', 'Lena', 'Tolya'];
-for ( end( $massive ); ($key = key( $massive )) !== null; prev( $massive ) ) {
-    print($key . " : " . current( $massive ) . "\n");
-    array_push( $new_massive, current( $massive ) );
-}
-
-var_dump( $new_massive );
-echo "<br>";
-echo "<br>";
-//2. Дан массив
-//[44, 12, 11, 7, 1, 99, 43, 5, 69]
-//Развернуть этот массив в обратном направлении
-
-$new_massive = [];
-$massive = [44, 12, 11, 7, 1, 99, 43, 5, 69];
-for ( end( $massive ); ($key = key( $massive )) !== null; prev( $massive ) ) {
-    print($key . " : " . current( $massive ) . "\n");
-    array_push( $new_massive, current( $massive ) );
-}
-
-var_dump( $new_massive );
-
-echo "<br>";
-//3. Дана строка
-//let str = 'Hi I am ALex'
-//развенуть строку в обратном направлении.
-
-$str = 'Hi I am ALex';
-echo strrev( $str );
-
-echo "<br>";
-
-//4. Дана строка. готовую функцию toUpperCase() or tolowercase()
-//let str = 'Hi I am ALex'
-//сделать ее с с маленьких букв
-
-$str = 'Hi I am ALex';
-
-$new_str_explode = explode(" ", $str);
-
-foreach ($new_str_explode as $key => $item){
-    $new_str_explode[$key] = strtolower($item);
-}
-
-var_dump($new_str_explode);
-echo "<br>";
-
-
-//5. Дана строка
-//let str = 'Hi I am ALex'
-//сделать все буквы большие
-
-$EnglishBigButtonMassive = array(
-    'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R',
-    'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
-);
-
-$EnglishSmallButtonMassive = array(
-    'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r',
-    's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
-);
-
-echo "<br>";
-
-$result = preg_replace("/\s+/", "", $str);
-
-$str_arr = array();
-
-for ($i=0;$i<=strlen($result)-1;$i++) {
-    array_push($str_arr, $result[$i]);
-}
-
-
-foreach ($str_arr as $key => $item) {
-    for ($i = 0; $i <= count($EnglishSmallButtonMassive); $i++) {
-        if($EnglishSmallButtonMassive[$i] == $item) {
-            $str_arr[$key] = $EnglishBigButtonMassive[$i];
-        }
-    }
-}
-echo "<pre>";
-var_dump($str_arr);
-echo "</pre>";
-echo "<br>";
-
-//7. Дан массив
-//['Alex', 'Vanya', 'Tanya', 'Lena', 'Tolya']
-//сделать все буквы с маленькой
-
-$massive = ['Alex', 'Vanya', 'Tanya', 'Lena', 'Tolya'];
-
-$massive = implode( ", ", $massive);
-var_dump($massive);
-$result = preg_replace("/\s+/", "", $massive);
-$result = preg_replace("/,/", "", $result);
-
-$str_arr = array();
-
-for ($i=0;$i<=strlen($result)-1;$i++) {
-    array_push($str_arr, $result[$i]);
-}
-
-
-foreach ($str_arr as $key => $item) {
-    for ($i = 0; $i <= count($EnglishBigButtonMassive); $i++) {
-        if($EnglishBigButtonMassive[$i] == $item) {
-            $str_arr[$key] = $EnglishSmallButtonMassive[$i];
-        }
-    }
-}
-echo "<pre>";
-var_dump($str_arr);
-echo "</pre>";
-
-
-echo "<hr>";
-echo "<hr>";
-echo "<hr>";
-echo "<hr>";
-
-
-//
-//8. Дан массив
-//['Alex', 'Vanya', 'Tanya', 'Lena', 'Tolya']
-//сделать все буквы с большой
-
-$massive = ['Alex', 'Vanya', 'Tanya', 'Lena', 'Tolya'];
-
-$new_massive_big_button = [];
-
-foreach ($massive as $key => $value) {
-
-    for ($v = 0; $v <= strlen($value); $v++) {
-
-        for ($i = 0; $i <= count($EnglishSmallButtonMassive); $i++) {
-            if($EnglishSmallButtonMassive[$i] == $value[$v]) {
-                $new_massive_big_button[$value] .= $EnglishBigButtonMassive[$i];
-            }
-            else if($EnglishBigButtonMassive[$i] == $value[$v]) {
-                $new_massive_big_button[$value] .= $value[$v];
-            }
-        }
-
-    }
-}
-
-echo "<pre>";
-var_dump($new_massive_big_button);
-echo "</pre>";
-
-
-echo "<hr>";
-echo "<hr>";
-echo "<hr>";
-echo "<hr>";
-
-//9. Дано число
-//let num = 1234678
-//развернуть ее в обратном направлении
-
-$number = 12345678;
-$number = trim((string)$number);
-$number = explode(' ', $number);
-
-$new_numbers_massive = [];
-
-for ($i = 0; $i <= strlen($number[0]); $i++) {
-    $new_numbers_massive[$i] .= $number[0][$i];
-}
-$new_massive = [];
-
-for ( end( $new_numbers_massive ); ($key = key( $new_numbers_massive )) !== null; prev( $new_numbers_massive ) ) {
-    array_push( $new_massive, current( $new_numbers_massive ) );
-}
-
-$newStroka = implode("", $new_massive);
-
-echo "<pre>";
-var_dump($newStroka);
-echo "</pre>";
-
-echo "<hr>";
-echo "<hr>";
-echo "<hr>";
-echo "<hr>";
-
-//10. Дан массив
-//[44, 12, 11, 7, 1, 99, 43, 5, 69]
-//отсортируй его в порядке убывания
-
-$massive_last = [44, 12, 11, 7, 1, 99, 43, 5, 69];
-rsort($massive_last, SORT_NUMERIC);
-echo "<pre>";
-var_dump($massive_last);
-echo "</pre>";
-
-echo "<br>";
-
-?>
-
-
 </body>
 </html>
 
