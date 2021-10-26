@@ -249,8 +249,64 @@ echo "</pre>";
     echo payVacation($country, $days, $discount);
 
 }?>
+
 <?php
-//Пользователь вводит свой имя, пароль, email. Если вся информация указана, то показать эти данные после фразы 'Регистрация прошла успешно', иначе сообщить какое из полей оказалось не заполненным.
+echo "<br>";
+//Пользователь вводит свой имя, пароль, email.
+// Если вся информация указана, то показать эти данные после фразы 'Регистрация прошла успешно',
+// иначе сообщить какое из полей оказалось не заполненным.
+?>
+
+<form action="<?php $_SERVER['PHP_SELF']?>" method="post">
+    <input type="text" name="name" placeholder="Введите имя">
+    <br>
+    <input type="password" name="password" placeholder="Введите пароль" >
+    <br>
+    <input type="email" name="email" placeholder="Введите email">
+    <br>
+    <button type="submit">Send</button>
+</form>
+
+<?php
+
+    $name = $_POST['name'];
+    $password = $_POST['password'];
+    $email = $_POST['email'];
+
+    function showMessageAfterRegisterForm($name, $password, $email) {
+        $errors = [];
+        $otvet = '';
+        if(!$name) {
+            $errors['name'] .= 'Поле Name нужно заполнить';
+        }
+        if(!$password) {
+            $errors['password'] .= 'Поле Password нужно заполнить';
+        }
+        if(!$email) {
+            $errors['email'] .= 'Поле Email нужно заполнить';
+        }
+
+        if(empty($errors)){
+            $password = password_hash($password, PASSWORD_DEFAULT);
+            $otvet = 'Регистрация прошла успешно ' . "name = $name " .
+                "password = $password " . "email = $email " . "</br>";
+        } else {
+            foreach ($errors as $error) {
+                $otvet .= $error . "<br>";
+            }
+        }
+        var_dump($otvet);
+
+        return $otvet;
+
+    }
+
+    showMessageAfterRegisterForm($name, $password, $email);
+?>
+
+
+<?php
+
 //Выведите на экран n раз фразу "Silence is golden". Число n вводит пользователь на форме. Если n некорректно, вывести фразу "Bad n".
 //Заполнить массив длины n нулями и единицами, при этом данные значения чередуются, начиная с нуля.
 //Определите, есть ли в массиве повторяющиеся элементы.
