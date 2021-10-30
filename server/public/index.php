@@ -34,18 +34,6 @@ echo "<br>";
 //[4,4,4,7] == solution(["some","test","data","strings"])
 //[7] == solution(["clojure"])
 
-$massivSlov = [
-        '1' => ['1', '2', 'a', 'b', 'c'],
-        '2' => ['ya', 'ba', 'ma', 'va', 'se'],
-        '3' => ['one', 'two', 'war', 'boy', 'sec'],
-        '4' => ['dock', 'bash', 'many', 'body', 'alex'],
-        '5' => ['vasya', 'petya', 'kolya', 'zomby', 'costa'],
-        '6' => ['dddddd', 'aaaaaa', 'shestl', 'gorila', 'bimboo'],
-        '7' => ['seven77', 'eight88', 'nine333', 'horosho', 'apphone'],
-        '8' => ['1234567s', 'kolua888', 'nadoelou', '888888ss', 'symphony'],
-        '9' => ['999999999', 'brooklyn9', 'something', 'finally99', 'nakonecto'],
-];
-
 function transformation(...$args){
 
     $massivSlov = [
@@ -64,14 +52,12 @@ function transformation(...$args){
     $count = count($args);
     for ($i = 0; $i < $count; $i++) {
         $findElement = $args[$i];
-        echo $findElement;
+
         if(array_key_exists($args[$i], $massivSlov)){
             $randElem = array_rand($massivSlov[$findElement]);
             $result[] = $massivSlov[$findElement][$randElem];
-            array_push($result, $massivSlov[$findElement][$randElem]); /*чем отличается array_push от присваивания*/
-            echo "<pre>";
-            var_dump(array_rand($massivSlov[$findElement]));
-            echo "</pre>";
+            /*array_push($result, $massivSlov[$findElement][$randElem]);*/
+            /*чем отличается array_push от присваивания*/
         } else {
             $result[] = 'вашего элемента '. $findElement . ' нет в искомом массиве';
         }
@@ -80,6 +66,32 @@ function transformation(...$args){
 }
 
 transformation(1, 2, 7, 32);
+
+echo "<br>";
+echo "<br>";
+echo "<br>";
+
+/*
+ * Фермер просит вас посчитать сколько ног у всех его животных. Фермер разводит три вида:
+ * курицы = 2 ноги коровы = 4 ноги свиньи = 4 ноги Фермер посчитал своих животных и
+ * говорит вам, сколько их каждого вида. Вы должны написать функцию, которая возвращает
+ * общее число ног всех животных.
+Примеры:
+36  == solution(2, 3, 5)
+22  == solution(1, 2, 3)
+50  == solution(5, 2, 8)
+ */
+
+function calcSumLegs(int $chicken, int $cows, int $pigs) {
+    $chicken = $chicken * 2;
+    $cows = $cows * 4;
+    $pigs = $pigs * 4;
+
+    $result = $chicken + $cows + $pigs;
+    print_r($result);
+}
+
+calcSumLegs(1, 4, 4);
 
 ?>
 
