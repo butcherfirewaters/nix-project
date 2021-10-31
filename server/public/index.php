@@ -244,7 +244,7 @@ echo "<br>";
 ///
 ///
 ///
-$massive = [5, 4, 5];
+$massive = [1, 3, 5];
 
 $iskomoeZnachenie = $massive[0];
 $bigZnach = $massive[0];
@@ -252,29 +252,53 @@ $smallZnach = $massive[0];
 
 $count = count($massive);
 
-for ($i = 0; $i <$count-1; $i++) {
-    if($massive[$i] <= $smallZnach){
-        $smallZnach = $massive[$i];
-        echo "<pre>";
-        var_dump($smallZnach, $massive[$i]);
-        echo "</pre>";
-
-    }
-    elseif($massive[$i] >= $bigZnach){
-        $bigZnach = $massive[$i];
+for ($i = 0; $i <$count; $i++) {
+    if($massive[$i] < $bigZnach && $massive[$i] > $smallZnach){
         $iskomoeZnachenie = $massive[$i];
-    } elseif($massive[$i] <= $bigZnach && $massive[$i] >= $smallZnach) {
+    } elseif($massive[$i] <= $smallZnach){
+        $smallZnach = $massive[$i];
+    } elseif($massive[$i] >= $bigZnach && $massive[$i] >= $iskomoeZnachenie) {
+        $bigZnach = $massive[$i];
+        if($massive[$i] <= $bigZnach && $massive[$i] > $smallZnach){
+            $iskomoeZnachenie = $massive[$i];
+        }
+    } elseif($massive[$i] >= $bigZnach) {
+        $bigZnach = $massive[$i];
+    } else {
         $iskomoeZnachenie = $massive[$i];
     }
 }
-var_dump($iskomoeZnachenie, $smallZnach, $bigZnach);
+var_dump($iskomoeZnachenie);
 
 echo "<br>";
 echo "<br>";
 echo "<br>";
 ?>
 
-<?
+<?php
+//Сэму и Фродо надо держаться вместе. Проверьте, нет ли между ними других персонажей.
+//Примеры:
+//true  == solution(["Sam","Frodo","Troll","Balrog","Human"])
+//false  == solution(["Orc","Frodo","Treant","Saruman","Sam"])
+//true  == solution(["Orc","Sam","Frodo","Gandalf","Legolas"])
+
+$frodoArray = ["Orc","Frodo","Treant","Saruman","Sam"];
+
+$skolko = count($frodoArray);
+
+for ($i = 0; $i < $skolko; $i++){
+    $result .= '';
+    if($frodoArray[$i] == 'Sam' && $frodoArray[$i+1] == 'Frodo') {
+
+        $result = 'Персонажи вместе';
+        break;
+    } else {
+
+        $result = 'Персонажи врозь';
+        continue;
+    }
+}
+var_dump($result);
 
 ?>
 
