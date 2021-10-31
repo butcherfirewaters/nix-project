@@ -282,13 +282,14 @@ echo "<br>";
 //false  == solution(["Orc","Frodo","Treant","Saruman","Sam"])
 //true  == solution(["Orc","Sam","Frodo","Gandalf","Legolas"])
 
-$frodoArray = ["Orc","Frodo","Treant","Saruman","Sam"];
+$frodoArray = ["Frodo","Sam","Troll","Balrog","Human"];
 
 $skolko = count($frodoArray);
 
 for ($i = 0; $i < $skolko; $i++){
     $result .= '';
-    if($frodoArray[$i] == 'Sam' && $frodoArray[$i+1] == 'Frodo') {
+    if(($frodoArray[$i] == 'Sam' && $frodoArray[$i+1] == 'Frodo')
+        || ($frodoArray[$i] == 'Frodo' && $frodoArray[$i+1] == 'Sam')) {
 
         $result = 'Персонажи вместе';
         break;
