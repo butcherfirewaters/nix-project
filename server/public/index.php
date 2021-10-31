@@ -206,7 +206,7 @@ echo "<br>";
 //["a","b","c","d"]  == solution(["a","b","c","d"])
 
 //
-$array = ['коля', 'двенадцать111', 'двенадцать123', 'тест', 'petya'];
+$array = ["a","b","c","d"];
 function findTooLengthElements($array){
     $max_line = '';
     $newArray = [];
@@ -215,26 +215,23 @@ function findTooLengthElements($array){
             $max_line = $value;
             $newArray[] = $max_line;
         }
-        foreach ($newArray as $item){
-            echo '<pre>';
-            var_dump($newArray);
-            echo '</pre>';
-            if(iconv_strlen($item) < strlen($value)){
-                echo 'huy';
-            } else {
-                unset($item);
-            }
-        }
-    }
-    $len = array_map('mb_strlen', $newArray);
-    $biggestZnacheniya = array_search(max($len), $len);
-    echo "<pre>";
-    var_dump($max_line, $newArray, $len, $biggestZnacheniya);
-    echo "</pre>";
-}
-findTooLengthElements($array);
 
-// не решил задачу своими силами
+    }
+    $finishedMassive = [];
+
+    $len = array_map('mb_strlen', $newArray);
+    $biggestZnacheniya = array_keys($len, max($len));
+
+    foreach ($biggestZnacheniya as $item) {
+        array_push($finishedMassive, $newArray[$item]);
+    }
+    return $finishedMassive;
+}
+
+$fin = findTooLengthElements($array);
+echo "<pre>";
+var_dump($fin);
+echo "</pre>";
 
 echo "<br>";
 echo "<br>";
@@ -300,6 +297,31 @@ for ($i = 0; $i < $skolko; $i++){
     }
 }
 var_dump($result);
+
+echo "<br>";
+echo "<br>";
+echo "<br>";
+
+//Создайте функцию, которая принимает массив из трех элементов
+// представляющих собой результат запуска слот-машины из казино.
+// Проверьте, является ли комбинация элементов удачной (все элементы равны).
+//Примеры:
+//true  == solution(["9919","9919","9919"])
+//false  == solution(["abc","abc","abb"])
+//true  == solution(["@","@","@"])
+//
+
+function casino($elem1, $elem2, $elem3){
+
+    if($elem1 === $elem2 && $elem2 === $elem3 && $elem3 === $elem1) {
+        $result = 'Вы выиграли';
+    } else {
+        $result = 'Вы проиграли';
+    }
+    return $result;
+}
+
+echo casino(25, 25, 25);
 
 ?>
 
