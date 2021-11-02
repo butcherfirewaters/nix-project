@@ -13,7 +13,7 @@
 //Создайте функцию, которая принимает слово на английском языке и проверяет,
 // во множественном ли числе находится слово. Проверяйте самый простой вариант.
 
-function isToManyWords($word){
+function isToManyWords(string $word) :string {
     $result = substr($word, -1);
     $predposledniySymbol = substr($word, -2);
     if($result == 's' || $predposledniySymbol.$result == 'es' || $predposledniySymbol.$result == 'ys') {
@@ -34,7 +34,7 @@ echo "<br>";
 //[4,4,4,7] == solution(["some","test","data","strings"])
 //[7] == solution(["clojure"])
 
-function transformation(...$args){
+function transformation(int ...$args) :array {
 
     $massivSlov = [
         '1' => ['a', 's', 'c', 'b', 'c'],
@@ -84,16 +84,15 @@ echo "<br>";
 50  == solution(5, 2, 8)
  */
 
-function calcSumLegs(int $chicken, int $cows, int $pigs) {
+function calcSumLegs(int $chicken, int $cows, int $pigs) :int {
     $chicken = $chicken * 2;
     $cows = $cows * 4;
     $pigs = $pigs * 4;
 
-    $result = $chicken + $cows + $pigs;
-    print_r($result);
+    return $result = $chicken + $cows + $pigs;
 }
 
-calcSumLegs(1, 4, 4);
+echo calcSumLegs(1, 4, 4);
 
 echo "<br>";
 echo "<br>";
@@ -170,7 +169,7 @@ echo "<br>";
 //"Grade: F"  == solution([10,9,2,3,5])
 //
 
-function calcGraduation(...$args){
+function calcGraduation(int ...$args) {
     $summaForStudent = 0;
     $count = count($args);
     foreach ($args as $oneItem){
@@ -206,8 +205,8 @@ echo "<br>";
 //["a","b","c","d"]  == solution(["a","b","c","d"])
 
 //
-$array = ["a","b","c","d"];
-function findTooLengthElements($array){
+$array = ["using","clojure","makes","your","life","greater"];
+function findTooLengthElements(array $array) :array {
     $max_line = '';
     $newArray = [];
     foreach ($array as $key => $value) {
@@ -311,7 +310,7 @@ echo "<br>";
 //true  == solution(["@","@","@"])
 //
 
-function casino($elem1, $elem2, $elem3){
+function casino(int $elem1,int $elem2,int $elem3) :string {
 
     if($elem1 === $elem2 && $elem2 === $elem3 && $elem3 === $elem1) {
         $result = 'Вы выиграли';
