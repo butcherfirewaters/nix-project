@@ -307,8 +307,8 @@ echo "<br>";
 //Примеры:
 //true  == solution(["9919","9919","9919"])
 //false  == solution(["abc","abc","abb"])
-//true  == solution(["@","@","@"])
-//
+//new files
+
 
 function casino(int $elem1,int $elem2,int $elem3) :string {
 
@@ -327,3 +327,4 @@ echo casino(25, 25, 25);
 
 </body>
 </html>
+
